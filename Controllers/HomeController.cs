@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using BridgeMonitor.Models;
+using System.Globalization;
 
 namespace BridgeMonitor.Controllers
 {
