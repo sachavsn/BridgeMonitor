@@ -3,20 +3,23 @@
 }
 
 @model List<FermeturePont>
-@{string date = "2021-10-11T02:09:00+0200";}
+@{
+    List<FermeturePont> passe = new List<FermeturePont>();
+    List<FermeturePont> avenir = new List<FermeturePont>();
+    Model.Sort((a, b) => a.closing_date.CompareTo(b.closing_date));
+
+}
 
 @foreach (var fermeture in Model)
 {
     int LeResultat = DateTime.Compare(Convert.ToDateTime(fermeture.closing_date), Convert.ToDateTime(DateTime.Now.ToString()));
     if (LeResultat == 1)
     {
-        var date3 = Convert.ToDateTime(date);
-        int LeResultat2 = DateTime.Compare(date3, Convert.ToDateTime(fermeture.closing_date));
-
-        if (LeResultat2 == 1)
-        {
-            date = @fermeture.closing_date.ToString();
-        }
+        avenir.Add(fermeture);
+    }
+    else
+    {
+        passe.Add(fermeture);
     }
 }
 
@@ -32,20 +35,40 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var fermeture in Model)
+        @foreach (var fermeture in passe)
         {
-        <tr>
-            <td>@fermeture.boat_name</td>
-            <td>@fermeture.closing_date</td>
-            @{TimeSpan DureeFermeture = Convert.ToDateTime(fermeture.reopening_date) - Convert.ToDateTime(@fermeture.closing_date);}
-            <td>@DureeFermeture.TotalHours h</td>
-
-        </tr>
+            <tr>
+                <td>@fermeture.boat_name</td>
+                <td>@fermeture.closing_date</td>
+                @{TimeSpan DureeFermeture = Convert.ToDateTime(fermeture.reopening_date) - Convert.ToDateTime(@fermeture.closing_date);}
+                <td>@DureeFermeture.Hours h et @DureeFermeture.Minutes min</td>
+            </tr>
         }
 
     </tbody>
 </table>
 
+<h1>Fermeture à venir</h1>
+<table style="list-group">
+    <thead>
+        <tr>
+            <th>Nom du bateau ou de l'évènement</th>
+            <th>Date et heure de la fermeture</th>
+            <th>Durée de la fermeture</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var fermeture in avenir)
+        {
+            <tr>
+                <td>@fermeture.boat_name</td>
+                <td>@fermeture.closing_date</td>
+                @{TimeSpan DureeFermeture = Convert.ToDateTime(fermeture.reopening_date) - Convert.ToDateTime(@fermeture.closing_date);}
+                <td>@DureeFermeture.Hours h et @DureeFermeture.Minutes min</td>
+            </tr>
+        }
+    </tbody>
+</table>
 
 
 

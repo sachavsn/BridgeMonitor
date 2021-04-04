@@ -32,7 +32,7 @@
         <p>Fermeture : @fermeture.closing_date @fermeture.closing_date.DayOfWeek</p>
         <p>Rouverture du pont : @fermeture.reopening_date @fermeture.reopening_date.DayOfWeek</p>
         TimeSpan DureeFermeture = Convert.ToDateTime(fermeture.reopening_date) - Convert.ToDateTime(@fermeture.closing_date);
-        <p>Durée de la fermeture : @DureeFermeture.TotalHours h.</p>
+        <p>Durée de la fermeture : @DureeFermeture.Hours h et @DureeFermeture.Minutes min.</p>
         <p>Il reste du temps avant la prochaine fermeture.</p>
 
         int bouchon = int.Parse(@fermeture.closing_date.ToString("HH"));
