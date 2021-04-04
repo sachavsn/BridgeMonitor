@@ -23,31 +23,6 @@
     }
 }
 
-
-
-<h1>Les Fermetures déja passé</h1>
-<table style="list-group">
-    <thead>
-        <tr>
-            <th>Nom du bateau ou de l'évènement</th>
-            <th>Date et heure de la fermeture</th>
-            <th>Durée de la fermeture</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var fermeture in passe)
-        {
-            <tr>
-                <td>@fermeture.boat_name</td>
-                <td>@fermeture.closing_date</td>
-                @{TimeSpan DureeFermeture = Convert.ToDateTime(fermeture.reopening_date) - Convert.ToDateTime(@fermeture.closing_date);}
-                <td>@DureeFermeture.Hours h et @DureeFermeture.Minutes min</td>
-            </tr>
-        }
-
-    </tbody>
-</table>
-
 <h1>Fermeture à venir</h1>
 <table style="list-group">
     <thead>
@@ -55,6 +30,7 @@
             <th>Nom du bateau ou de l'évènement</th>
             <th>Date et heure de la fermeture</th>
             <th>Durée de la fermeture</th>
+            <th>Détail</th>
         </tr>
     </thead>
     <tbody>
@@ -65,8 +41,34 @@
                 <td>@fermeture.closing_date</td>
                 @{TimeSpan DureeFermeture = Convert.ToDateTime(fermeture.reopening_date) - Convert.ToDateTime(@fermeture.closing_date);}
                 <td>@DureeFermeture.Hours h et @DureeFermeture.Minutes min</td>
+                <td><button><a href="">Voir le détail</a></button></td>
             </tr>
         }
+    </tbody>
+</table>
+
+<h1>Les Fermetures déja passé</h1>
+<table style="list-group">
+    <thead>
+        <tr>
+            <th>Nom du bateau ou de l'évènement</th>
+            <th>Date et heure de la fermeture</th>
+            <th>Durée de la fermeture</th>
+            <th>Détail</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var fermeture in passe)
+        {
+            <tr>
+                <td>@fermeture.boat_name</td>
+                <td>@fermeture.closing_date</td>
+                @{TimeSpan DureeFermeture = Convert.ToDateTime(fermeture.reopening_date) - Convert.ToDateTime(@fermeture.closing_date);}
+                <td>@DureeFermeture.Hours h et @DureeFermeture.Minutes min</td>
+                <td><button><a href="">Voir le détail</a></button></td>
+            </tr>
+        }
+
     </tbody>
 </table>
 
