@@ -30,7 +30,25 @@
         <p>Cause : @fermeture.boat_name</p>
         <p>Fermeture : @fermeture.closing_date @fermeture.closing_date.DayOfWeek</p>
         <p>Rouverture du pont : @fermeture.reopening_date @fermeture.reopening_date.DayOfWeek</p>
-         TimeSpan DureeFermeture = Convert.ToDateTime(fermeture.reopening_date) - Convert.ToDateTime(@fermeture.closing_date);
+        TimeSpan DureeFermeture = Convert.ToDateTime(fermeture.reopening_date) - Convert.ToDateTime(@fermeture.closing_date);
         <p>Durée de la fermeture : @DureeFermeture.TotalHours h.</p>
+        <p>Il reste du temps avant la prochaine fermeture.</p>
+
+        int bouchon = int.Parse(@fermeture.closing_date.ToString("HH"));
+        string Risque;
+        if (17 > bouchon)
+        {
+            Risque = "Eleve";
+
+            if (19 < bouchon)
+            {
+                Risque = "Eleve";
+            }
+        }
+        else
+        {
+            Risque = "Faible";
+        }
+        <p>Risque : @Risque</p>
     }
 }
