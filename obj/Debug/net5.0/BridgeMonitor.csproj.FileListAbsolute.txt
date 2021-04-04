@@ -40,3 +40,4 @@ C:\Users\sacha\Desktop\BridgeMonitor\BridgeMonitor\obj\Debug\net5.0\BridgeMonito
 C:\Users\sacha\Desktop\BridgeMonitor\BridgeMonitor\obj\Debug\net5.0\BridgeMonitor.csproj.CopyComplete
 C:\Users\sacha\Desktop\BridgeMonitor\BridgeMonitor\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\sacha\Desktop\BridgeMonitor\BridgeMonitor\obj\Debug\net5.0\Razor\Views\Home\ToutesLesFermetures.cshtml.g.cs
+C:\Users\sacha\Desktop\BridgeMonitor\BridgeMonitor\obj\Debug\net5.0\Razor\Views\Home\Detail.cshtml.g.cs

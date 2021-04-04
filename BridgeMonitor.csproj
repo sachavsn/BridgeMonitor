@@ -8,6 +8,11 @@
     <Compile Remove="Controllers\Fermeturecontroller.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Remove="Views\Home\Index - Copier.cshtml" />
+    <Content Remove="Views\Home\ToutesLesFermetures - Copier.cshtml" />
+  </ItemGroup>
+
 	<ItemGroup>
 		<PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
 	</ItemGroup>

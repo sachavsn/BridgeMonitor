@@ -41,7 +41,7 @@
                 <td>@fermeture.closing_date</td>
                 @{TimeSpan DureeFermeture = Convert.ToDateTime(fermeture.reopening_date) - Convert.ToDateTime(@fermeture.closing_date);}
                 <td>@DureeFermeture.Hours h et @DureeFermeture.Minutes min</td>
-                <td><button><a href="">Voir le détail</a></button></td>
+                <td><a asp-action="Detail" asp-route-id="@fermeture.boat_name">Detail</a></td>
             </tr>
         }
     </tbody>
@@ -60,13 +60,13 @@
     <tbody>
         @foreach (var fermeture in passe)
         {
-            <tr>
-                <td>@fermeture.boat_name</td>
-                <td>@fermeture.closing_date</td>
-                @{TimeSpan DureeFermeture = Convert.ToDateTime(fermeture.reopening_date) - Convert.ToDateTime(@fermeture.closing_date);}
-                <td>@DureeFermeture.Hours h et @DureeFermeture.Minutes min</td>
-                <td><button><a href="">Voir le détail</a></button></td>
-            </tr>
+        <tr>
+            <td>@fermeture.boat_name</td>
+            <td>@fermeture.closing_date</td>
+            @{TimeSpan DureeFermeture = Convert.ToDateTime(fermeture.reopening_date) - Convert.ToDateTime(@fermeture.closing_date);}
+            <td>@DureeFermeture.Hours h et @DureeFermeture.Minutes min</td>
+            <td><a asp-action="Detail" asp-route-id="@fermeture.boat_name">Detail</a></td>
+        </tr>
         }
 
     </tbody>
