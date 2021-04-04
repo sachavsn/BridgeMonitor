@@ -26,7 +26,7 @@ namespace BridgeMonitor.Controllers
             var fermeture = GetFermetureFromApi();
             return View(fermeture);
         }
-        public IActionResult All()
+        public IActionResult ToutesLesFermetures()
         {
             var fermeture = GetFermetureFromApi();
             return View(fermeture);

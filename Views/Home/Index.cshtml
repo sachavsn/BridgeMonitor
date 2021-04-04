@@ -25,6 +25,7 @@
 }
 @foreach (var fermeture in Model)
 {
+
     if (@fermeture.closing_date.ToString() == date)
     {
         <p>Cause : @fermeture.boat_name</p>
@@ -36,6 +37,7 @@
 
         int bouchon = int.Parse(@fermeture.closing_date.ToString("HH"));
         string Risque;
+
         if (17 > bouchon)
         {
             Risque = "Eleve";
@@ -49,6 +51,7 @@
         {
             Risque = "Faible";
         }
+
         <p>Risque : @Risque</p>
     }
 }
